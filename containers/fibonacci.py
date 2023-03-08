@@ -70,8 +70,7 @@ class FibIter:
     '''
 
     def __init__(self, n):
-        if n is not None:
-            self.n = n
+        self.n = n
         self.i = 0
         self.before = 0
         self.after = 1
@@ -97,8 +96,7 @@ def fib_yield(n=None):
     If n is None, then the generator is infinite.
     '''
 
-    x = 1
-    y = 1
+    x, y = 1, 1
 
     if n is not None:
         for i in range(1, n + 1):
