@@ -70,10 +70,12 @@ class FibIter:
     '''
 
     def __init__(self, n):
-        self.n = n
-        self.x = 1
-        self.y = 0
+        if n is not None:
+            self.n = n
         self.i = 0
+        self.before = 0
+        self.after = 1
+
 
     def __next__(self):
         if self.n is None:
@@ -82,10 +84,10 @@ class FibIter:
         elif self.i >= self.n:
             raise StopIteration
         self.i += 1
-        value = self.x
-        self.x += self.y
-        self.y = value
-        return value
+        fib = self.after
+        self.after += self.before
+        self.before = fib
+        return fib
 
 
 def fib_yield(n=None):
@@ -101,4 +103,4 @@ def fib_yield(n=None):
     if n is not None:
         for i in range(1, n + 1):
             yield x
-            x, y = x + y, y
+            x, y = y, x + y
