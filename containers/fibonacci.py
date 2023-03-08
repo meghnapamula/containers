@@ -71,10 +71,9 @@ class FibIter:
 
     def __init__(self, n):
         self.n = n
+        self.after = 1
         self.i = 0
         self.before = 0
-        self.after = 1
-
 
     def __next__(self):
         if self.n is None:
