@@ -101,4 +101,4 @@ def fib_yield(n=None):
     if n is not None:
         for i in range(1, n + 1):
             yield x
-            x, y = x + y, x
+            x, y = x + y, y
